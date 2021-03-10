@@ -1,7 +1,6 @@
 'use strict';
 
 const EventEmitter = require('events');
-const puppeteer = require('puppeteer');
 const moduleRaid = require('@pedroslopez/moduleraid/moduleraid');
 const jsQR = require('jsqr');
 
@@ -15,9 +14,9 @@ const { ClientInfo, Message, MessageMedia, Contact, Location, GroupNotification 
 /**
  * Starting point for interacting with the WhatsApp Web API
  * @extends {EventEmitter}
+ * @param {object} puppeteerBrowser - Puppeteer browser instance
  * @param {object} options - Client options
  * @param {number} options.authTimeoutMs - Timeout for authentication selector in puppeteer
- * @param {object} options.puppeteer - Puppeteer launch options. View docs here: https://github.com/puppeteer/puppeteer/
  * @param {number} options.qrRefreshIntervalMs - Refresh interval for qr code (how much time to wait before checking if the qr code has changed)
  * @param {number} options.qrTimeoutMs - Timeout for qr code selector in puppeteer
  * @param {string} options.restartOnAuthFail  - Restart client with a new session (i.e. use null 'session' var) if authentication fails
@@ -49,12 +48,12 @@ const { ClientInfo, Message, MessageMedia, Contact, Location, GroupNotification 
  * @fires Client#change_battery
  */
 class Client extends EventEmitter {
-    constructor(options = {}) {
+    constructor(puppeteerBrowser, options = {}) {
         super();
 
         this.options = Util.mergeDefault(DefaultOptions, options);
 
-        this.pupBrowser = null;
+        this.pupBrowser = puppeteerBrowser;
         this.pupPage = null;
 
         Util.setFfmpegPath(this.options.ffmpegPath);
@@ -64,11 +63,9 @@ class Client extends EventEmitter {
      * Sets up events and requirements, kicks off authentication request
      */
     async initialize() {
-        const browser = await puppeteer.launch(this.options.puppeteer);
-        const page = (await browser.pages())[0];
+        const page = (await this.pupBrowser.pages())[0];
         page.setUserAgent(this.options.userAgent);
 
-        this.pupBrowser = browser;
         this.pupPage = page;
 
         if (this.options.session) {
@@ -101,7 +98,7 @@ class Client extends EventEmitter {
                      * @param {string} message
                      */
                     this.emit(Events.AUTHENTICATION_FAILURE, 'Unable to log in. Are the session details valid?');
-                    browser.close();
+                    this.pupBrowser.close();
                     if (this.options.restartOnAuthFail) {
                         // session restore failed so try again but without session to force new authentication
                         this.options.session = null;
