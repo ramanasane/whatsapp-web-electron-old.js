@@ -3,6 +3,7 @@
 const EventEmitter = require('events');
 const moduleRaid = require('@pedroslopez/moduleraid/moduleraid');
 const jsQR = require('jsqr');
+const pie = require('puppeteer-in-electron');
 
 const Util = require('./util/Util');
 const InterfaceController = require('./util/InterfaceController');
@@ -15,6 +16,7 @@ const { ClientInfo, Message, MessageMedia, Contact, Location, GroupNotification 
  * Starting point for interacting with the WhatsApp Web API
  * @extends {EventEmitter}
  * @param {object} puppeteerBrowser - Puppeteer browser instance
+ * @param {object} browserWindow - Electron browser window instance
  * @param {object} options - Client options
  * @param {number} options.authTimeoutMs - Timeout for authentication selector in puppeteer
  * @param {number} options.qrRefreshIntervalMs - Refresh interval for qr code (how much time to wait before checking if the qr code has changed)
@@ -48,12 +50,13 @@ const { ClientInfo, Message, MessageMedia, Contact, Location, GroupNotification 
  * @fires Client#change_battery
  */
 class Client extends EventEmitter {
-    constructor(puppeteerBrowser, options = {}) {
+    constructor(puppeteerBrowser, browserWindow, options = {}) {
         super();
 
         this.options = Util.mergeDefault(DefaultOptions, options);
 
         this.pupBrowser = puppeteerBrowser;
+        this.browserWindow = browserWindow;
         this.pupPage = null;
 
         Util.setFfmpegPath(this.options.ffmpegPath);
@@ -63,7 +66,7 @@ class Client extends EventEmitter {
      * Sets up events and requirements, kicks off authentication request
      */
     async initialize() {
-        const page = (await this.pupBrowser.pages())[0];
+        const page = await pie.getPage(this.pupBrowser, this.browserWindow);
         page.setUserAgent(this.options.userAgent);
 
         this.pupPage = page;
