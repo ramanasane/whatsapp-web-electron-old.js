@@ -12,7 +12,7 @@ This is an electron wrapper for [whatsapp-web.js](https://github.com/pedroslopez
 
 ## Installation
 
-The module is now available on [npm](https://npmjs.org/package/whatsapp-web-electron.js)! `npm i whatsapp-web-web.js`
+The module is now available on [npm](https://npmjs.org/package/whatsapp-web-electron.js)! `npm i whatsapp-web-electron.js`
 
 Please note that Node v12+ is required.
 
