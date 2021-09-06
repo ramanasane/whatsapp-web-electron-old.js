@@ -54,10 +54,6 @@ Take a look at [whatsapp-web.js example.js](https://github.com/pedroslopez/whats
 
 The original [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js) has remote access feature and supports docker which is irrelevant for an electron project, that's why I didn't include it here.
 
-## Sending Arbitrary Image as Sticker
-
-Sending image as sticker requires [sharp](https://github.com/lovell/sharp/releases) package and it's difficult to package with electron, so I choose to remove it. Feel free to open a PR if you can fix this issue.
-
 ## Supported features
 
 | Feature  | Status |
@@ -66,7 +62,7 @@ Sending image as sticker requires [sharp](https://github.com/lovell/sharp/releas
 | Receive messages  | ✅  |
 | Send media (images/audio/documents)  | ✅  |
 | Send media (video)  | ✅ [(requires google chrome)](https://guide.wwebjs.dev/features/handling-attachments#caveat-for-sending-videos-and-gifs)  |
-| Send stickers | ✅ [(can't send arbitrary image)](#sending-arbitrary-image-as-sticker) |
+| Send stickers | ✅ |
 | Receive media (images/audio/video/documents)  | ✅  |
 | Send contact cards | ✅ |
 | Send location | ✅ |
