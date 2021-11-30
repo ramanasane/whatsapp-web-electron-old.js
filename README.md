@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/whatsapp-web-electron.js)](https://www.npmjs.com/package/whatsapp-web-electron.js) [![Depfu](https://badges.depfu.com/badges/4a65a0de96ece65fdf39e294e0c8dcba/overview.svg)](https://depfu.com/github/pedroslopez/whatsapp-web.js?project_id=9765) ![WhatsApp_Web 2.2126.14](https://img.shields.io/badge/WhatsApp_Web-2.2126.14-brightgreen.svg)  
+[![npm](https://img.shields.io/npm/v/whatsapp-web-electron.js)](https://www.npmjs.com/package/whatsapp-web-electron.js) [![Depfu](https://badges.depfu.com/badges/4a65a0de96ece65fdf39e294e0c8dcba/overview.svg)](https://depfu.com/github/pedroslopez/whatsapp-web.js?project_id=9765) ![WhatsApp_Web 2.2146.9](https://img.shields.io/badge/WhatsApp_Web-2.2146.9-brightgreen.svg)  
 
 # whatsapp-web-electron.js
 
@@ -9,6 +9,13 @@ It uses Puppeteer to run a real instance of Whatsapp Web to avoid getting blocke
 This is an electron wrapper for [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js) which connect using [puppeteer-in-electron](https://github.com/TrevorSundberg/puppeteer-in-electron).
 
 **NOTE:** I can't guarantee you will not be blocked by using this method, although it has worked for me. WhatsApp does not allow bots or unofficial clients on their platform, so this shouldn't be considered totally safe.
+
+## whatsapp-web.js Quick Links
+
+* [Guide / Getting Started](https://wwebjs.dev/guide) _(work in progress)_
+* [Reference documentation](https://docs.wwebjs.dev/)
+* [GitHub](https://github.com/pedroslopez/whatsapp-web.js)
+* [npm](https://npmjs.org/package/whatsapp-web.js)
 
 ## Installation
 
@@ -65,11 +72,13 @@ Sending image as sticker requires [sharp](https://github.com/lovell/sharp/releas
 | Send messages  | ✅  |
 | Receive messages  | ✅  |
 | Send media (images/audio/documents)  | ✅  |
-| Send media (video)  | ✅ [(requires google chrome)](https://guide.wwebjs.dev/features/handling-attachments#caveat-for-sending-videos-and-gifs)  |
+| Send media (video)  | ✅ [(requires google chrome)](https://wwebjs.dev/guide/handling-attachments.html#caveat-for-sending-videos-and-gifs)  |
 | Send stickers | ✅ [(can't send arbitrary image)](#sending-arbitrary-image-as-sticker) |
 | Receive media (images/audio/video/documents)  | ✅  |
 | Send contact cards | ✅ |
 | Send location | ✅ |
+| Send buttons | ✅ |
+| Send lists | ✅ (business accounts not supported) |
 | Receive location | ✅ | 
 | Message replies | ✅ |
 | Join groups by invite  | ✅ |
@@ -86,12 +95,7 @@ Sending image as sticker requires [sharp](https://github.com/lovell/sharp/releas
 | Get profile pictures | ✅ |
 | Set user status message | ✅ |
 
-## whatsapp-web.js Links
-
-* [Reference](https://docs.wwebjs.dev/)
-* [Guide](https://guide.wwebjs.dev/) _(work in progress)_
-* [GitHub](https://github.com/pedroslopez/whatsapp-web.js)
-* [npm](https://npmjs.org/package/whatsapp-web.js)
+Something missing? Make an issue and let us know!
 
 ## Contributing
 
