@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/whatsapp-web-electron.js)](https://www.npmjs.com/package/whatsapp-web-electron.js) [![Depfu](https://badges.depfu.com/badges/4a65a0de96ece65fdf39e294e0c8dcba/overview.svg)](https://depfu.com/github/pedroslopez/whatsapp-web.js?project_id=9765) ![WhatsApp_Web 2.2146.9](https://img.shields.io/badge/WhatsApp_Web-2.2146.9-brightgreen.svg)  
+[![npm](https://img.shields.io/npm/v/whatsapp-web-electron.js)](https://www.npmjs.com/package/whatsapp-web-electron.js) [![Depfu](https://badges.depfu.com/badges/4a65a0de96ece65fdf39e294e0c8dcba/overview.svg)](https://depfu.com/github/pedroslopez/whatsapp-web.js?project_id=9765) ![WhatsApp_Web 2.2147.14](https://img.shields.io/badge/WhatsApp_Web-2.2147.14-brightgreen.svg)  
 
 # whatsapp-web-electron.js
 
