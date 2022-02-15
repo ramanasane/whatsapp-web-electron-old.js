@@ -1,6 +1,6 @@
 [![npm](https://img.shields.io/npm/v/whatsapp-web-electron.js)](https://www.npmjs.com/package/whatsapp-web-electron.js) [![Depfu](https://badges.depfu.com/badges/4a65a0de96ece65fdf39e294e0c8dcba/overview.svg)](https://depfu.com/github/pedroslopez/whatsapp-web.js?project_id=9765) ![WhatsApp_Web 2.2202.12](https://img.shields.io/badge/WhatsApp_Web-2.2202.12-brightgreen.svg) [![Discord Chat](https://img.shields.io/discord/698610475432411196.svg?logo=discord)](https://discord.gg/H7DqQs4)  
 
-# whatsapp-web-electron.js
+# whatsapp-web-electron-old.js
 
 A WhatsApp API client that connects through the WhatsApp Web browser app
 
